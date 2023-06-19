@@ -293,7 +293,7 @@ public class RestaurantService {
     public void updateClose(Integer resId){
         PreparedStatement psmt = null;
         try {
-            query = "UPDATE Restaurant SET status = FALSE WHERE res_id LIKE ?";
+            query = "UPDATE Restaurant SET open = FALSE WHERE res_id LIKE ?";
             psmt = conn.prepareStatement(query);
             psmt.setInt(1, resId);
 

@@ -52,7 +52,7 @@ public class UpdateResPanel extends JFrame {
 
         //this.setSize(500,600);
         //this.setLocation(600,200);
-
+        JPanel p_panel = new JPanel(new GridLayout(4,1));
         JPanel p_east = new JPanel(); //
         JPanel p_west = new JPanel(); //
         JPanel p_center = new JPanel(); //
@@ -83,18 +83,25 @@ public class UpdateResPanel extends JFrame {
         Dimension btnSize = new Dimension(100, 25);
         bt_modified.setPreferredSize(btnSize);
 
+        JPanel btnPanel = new JPanel();
+        btnPanel.add(open);
+        btnPanel.add(close);
+
 
         p_west.setPreferredSize(new Dimension(100, 100));
         p_center.setPreferredSize(new Dimension(100, 100));
         p_south.setPreferredSize(new Dimension(100, 100));
         p_east.setPreferredSize(new Dimension(300, 100));
 
-        add(p_west);
-        add(p_center);
-        add(p_south);
-        add(p_east);
-
-        p_west.add(la_name);
+        p_panel.add(la_name);
+        p_panel.add(t_name);
+        p_panel.add(la_open);
+        p_panel.add(btnPanel);
+        p_panel.add(la_description);
+        p_panel.add(t_description);
+        p_panel.add(la_phone);
+        p_panel.add(t_phone);
+        /*p_west.add(la_name);
         p_east.add(t_name);
         p_west.add(la_open);
         p_east.add(open);
@@ -102,13 +109,15 @@ public class UpdateResPanel extends JFrame {
         p_west.add(la_description);
         p_east.add(t_description);
         p_west.add(la_phone);
-        p_east.add(t_phone);
+        p_east.add(t_phone);*/
 
         p_south.add(bt_modified);
+        /*
         add(p_east, BorderLayout.EAST);
         add(p_west, BorderLayout.WEST);
         add(p_center, BorderLayout.CENTER);
         add(p_south, BorderLayout.SOUTH);
+         */
 
         String resName = restaurant.getResName();
         String resPhone = restaurant.getResPhone();
@@ -135,6 +144,9 @@ public class UpdateResPanel extends JFrame {
         });
 
         setPreferredSize(new Dimension(600, 700));
-        container.setLayout(new BorderLayout());
+        add(p_panel,BorderLayout.CENTER);
+        add(p_south, BorderLayout.SOUTH);
+        setVisible(true);
+        pack();
     }
 }

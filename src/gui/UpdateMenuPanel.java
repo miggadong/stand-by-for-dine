@@ -21,11 +21,11 @@ public class UpdateMenuPanel extends JFrame {
     Container container = getContentPane();
     Restaurant restaurant;
 
-    JLabel imageLabel1;
+    JLabel imageLabel;
     JLabel ImageLabel2;
     JLabel imageLabel3;
     JLabel imageLabel4;
-    JPanel imagePanel1;
+    JPanel imagePanel;
     JPanel imagePanel2;
     JPanel imagePanel3;
     JPanel imagePanel4;
@@ -51,9 +51,6 @@ public class UpdateMenuPanel extends JFrame {
 
     public UpdateMenuPanel(Integer resId) {
 
-
-
-
         setPreferredSize(new Dimension(500, 400));
         setTitle("메뉴판");
         JPanel menuPanel = new JPanel(new GridLayout(4,1));
@@ -73,7 +70,7 @@ public class UpdateMenuPanel extends JFrame {
 
         if (resId == 2) {
             imagePaths = new String[]{
-                    "C:\\Users\\pgh99\\Workspace\\School_workspace\\Stand_by_for_dine\\picture\\shin_1.jpegg",
+                    "C:\\Users\\pgh99\\Workspace\\School_workspace\\Stand_by_for_dine\\picture\\shin_1.jpeg",
                     "C:\\Users\\pgh99\\Workspace\\School_workspace\\Stand_by_for_dine\\picture\\shin_2.jpeg",
                     "C:\\Users\\pgh99\\Workspace\\School_workspace\\Stand_by_for_dine\\picture\\shin_3.jpeg",
                     "C:\\Users\\pgh99\\Workspace\\School_workspace\\Stand_by_for_dine\\picture\\shin_4.jpeg"
@@ -155,22 +152,20 @@ public class UpdateMenuPanel extends JFrame {
             imagePanel.add(labelPanel, BorderLayout.SOUTH);
             menuPanel.add(imagePanel);
 
-            btnUpdate = new JButton("업데이트");
-            menuPanel.add(btnUpdate);
         }
 
-        btnUpdate.addActionListener(e -> {
+
+        scrollPane = new JScrollPane(menuPanel);
+
+        btnUpdate  = new JButton("업데이트");
+       btnUpdate.addActionListener(e -> {
             MenuService menuService = new MenuService();
             for(int i =0; i<4; i++){
                 menuService.updateMenu(resId,menuLabelArrayList.get(i).getPriceText().getText(),
                         menuLabelArrayList.get(i).getStatusText().getText(), i);
             }
+            JOptionPane.showMessageDialog(this,"반영 되었습니다!");
         });
-
-
-        scrollPane = new JScrollPane(menuPanel);
-
-
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         menuPanel.setSize(400,600);
@@ -184,7 +179,8 @@ public class UpdateMenuPanel extends JFrame {
         add(scrollPane, BorderLayout.NORTH);
         container.setLayout(new BorderLayout());
         //container.setSize(500,600);
-        container.add("Center", scrollPane);
+        add(scrollPane,BorderLayout.CENTER);
+        add(btnUpdate,BorderLayout.SOUTH);
         setVisible(true);
         pack();
 

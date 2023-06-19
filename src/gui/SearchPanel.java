@@ -198,8 +198,8 @@ public class SearchPanel extends JPanel{
         btnQue.addActionListener(e -> {
 
             int i = 6;
-            String message = restaurant.getResName() + "식당에서" + 6 + "번째 대기 중입니다!";
-            Object[] options = {"확인", "새로고침"};
+            String message = "식당에서" + 6 + "번째 대기 중입니다!";
+            Object[] options = { "취소","새로고침"};
 
             int ch = JOptionPane.showOptionDialog(
                     SearchPanel.this,
@@ -217,12 +217,12 @@ public class SearchPanel extends JPanel{
             if (ch == 1) {
                 while(i > 1) {
                     i = i -2;
-                    String message2 = restaurant.getResName() + "식당에서" + i + "번째 대기 중입니다!";
+                    String message2 =  "식당에서" + i + "번째 대기 중입니다!";
                     Object[] options2;
                     if (i == 0) {
-                        options2 = new Object[]{"확인", "새로고침", "입장"};
+                        options2 = new Object[]{"취소","새로고침","입장"};
                     } else {
-                        options2 = new Object[]{"확인", "새로고침"};
+                        options2 = new Object[]{"취소","새로고침"};
                     }
 
 

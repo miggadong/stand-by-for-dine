@@ -33,8 +33,10 @@ public class MyResListPanel extends JPanel {
     JLabel queLabel;
     JLabel score;
     int i = 0;
+    String name;
 
     public MyResListPanel(String custId){
+        name = custId;
         setLayout(new BorderLayout());
         ReviewService reviewService = new ReviewService();
         RestaurantService restaurantService = new RestaurantService();
@@ -70,6 +72,8 @@ public class MyResListPanel extends JPanel {
         JPanel southPanel = new JPanel(new FlowLayout());
         btnMenu = new JButton("메뉴 수정");
         btnUpdate = new JButton("가게 정보 수정");
+        southPanel.add(btnMenu);
+        southPanel.add(btnUpdate);
         add(southPanel,BorderLayout.SOUTH);
 
         setPreferredSize(new Dimension(730,660));
@@ -94,7 +98,7 @@ public class MyResListPanel extends JPanel {
         });
 
         btnReview.addActionListener(e->{
-            new gui.MyReviewPanel(list.get(i), customer.getCusId());
+            new gui.MyReviewPanel(list.get(i),name);
         });
 
         btnChat.addActionListener(e ->{

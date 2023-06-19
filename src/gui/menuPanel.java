@@ -54,7 +54,7 @@ public class menuPanel extends JFrame {
 
         if (resId == 2) {
             imagePaths = new String[]{
-                    "C:\\Users\\pgh99\\Workspace\\School_workspace\\Stand_by_for_dine\\picture\\shin_1.jpegg",
+                    "C:\\Users\\pgh99\\Workspace\\School_workspace\\Stand_by_for_dine\\picture\\shin_1.jpeg",
                     "C:\\Users\\pgh99\\Workspace\\School_workspace\\Stand_by_for_dine\\picture\\shin_2.jpeg",
                     "C:\\Users\\pgh99\\Workspace\\School_workspace\\Stand_by_for_dine\\picture\\shin_3.jpeg",
                     "C:\\Users\\pgh99\\Workspace\\School_workspace\\Stand_by_for_dine\\picture\\shin_4.jpeg"
